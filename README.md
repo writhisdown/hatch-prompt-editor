@@ -3,7 +3,7 @@
 </p>
 
 ---
-# Hatch prompt editor
+# Hatch script builder
 This is a frontend challenge based on a real-world problem we've solved at Hatch.
 
 We're excited to see how you approach a complex editing interface involving markdown.
