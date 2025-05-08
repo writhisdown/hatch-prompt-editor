@@ -1,54 +1,104 @@
-# React + TypeScript + Vite
+# 🧠 Hatch Prompt Editor – Take Home Assignment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a frontend challenge based on a real-world problem we've solved at Hatch.
 
-Currently, two official plugins are available:
+We're excited to see how you approach a complex editing interface involving markdown.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🧭 Goal
 
-## Expanding the ESLint configuration
+You'll improve our prompt building editor to:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- (Read) Renders the markdown beautifully
+- Renders tool calling placeholders as interactive badges
+- Supports replacing, inserting, and deleting functions
+- (Write) Supports serialization back to markdown (round-trip)
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 📁 Repository Structure
+
+```
+.
+├── src/
+│   ├── data/           # Data models and types
+│   ├── components/     # React components
+│   ├── lib/           # Utility functions and helpers
+│   ├── assets/        # Static assets
+│   └── App.tsx        # Main application component
+├── public/            # Public static files
+└── [config files]     # Various configuration files
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🧱 Tech Stack
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+This repo uses:
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+- React (with Vite)
+- TypeScript
+- TailwindCSS
+- shadcn/ui (for UI components)
+
+You are free to add any dependencies you'd like, but please document why you chose that approach.
+
+---
+
+## ✅ Requirements
+
+### 1. Rich Markdown Rendering
+
+- Parse and render markdown with support for:
+  - Headings, bold, italic, underline
+  - Lists, horizontal rules
+  - Inline code / blocks
+- Match the visual style shown in the design (clean, readable)
+
+### 2. Function Badges
+
+- Replace all `<% function UUID %>` placeholders with interactive badges
+- Each badge must:
+  - Display the function's description on hover (tooltip)
+  - Be clickable → opens dropdown or popover
+  - Allow choosing another function from the list
+  - Support deletion with confirmation
+
+### 3. Serialization
+
+- Your system must convert the editor state back to markdown:
+  - Preserve all regular markdown formatting
+  - Replace function badges with their correct placeholder syntax: `<% function UUID %>`
+- Ensure round-trip works:
+  - Load → Edit → Serialize → Load again should preserve structure
+
+#### (stretch) Slash Commands
+
+- Typing `/` inside the editor opens a slash command menu
+- The menu must:
+  - Show a list of available functions (name + description)
+  - Be keyboard accessible
+  - Insert a function badge at cursor position when selected
+
+## 📚 What to Submit
+
+- A GitHub repo (public)
+- Your solution with a working local dev setup
+- A `SOLUTION.md` that includes:
+  - Your editor stack choice and why
+  - Trade-offs made
+  - How to run the project locally
+  - What's working and what's not
+  - Anything you'd improve with more time
+
+You can deploy to Vercel/Netlify if you'd like, but it's optional.
+
+---
+
+## 🤝 Final Notes
+
+This is not a test with a single correct solution.
+We're looking to understand how you:
+
+- Navigate ambiguity
+- Data model
+- Reason about trade-offs
+
+We're excited to see what you come up with. Good luck!
+
+— The Hatch Team
