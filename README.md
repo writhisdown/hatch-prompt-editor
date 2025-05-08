@@ -3,12 +3,12 @@
 </p>
 
 ---
-
+# Hatch prompt editor
 This is a frontend challenge based on a real-world problem we've solved at Hatch.
 
 We're excited to see how you approach a complex editing interface involving markdown.
 
-## 🧭 Goal
+## Goal
 
 You'll improve our prompt building editor to:
 
@@ -17,7 +17,7 @@ You'll improve our prompt building editor to:
 - Supports replacing, inserting, and deleting functions
 - (Write) Supports serialization back to markdown (round-trip)
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
 .
@@ -31,7 +31,7 @@ You'll improve our prompt building editor to:
 └── [config files]     # Various configuration files
 ```
 
-## 🧱 Tech Stack
+## Tech Stack
 
 This repo uses:
 
@@ -44,7 +44,7 @@ You are free to add any dependencies you'd like, but please document why you cho
 
 ---
 
-## ✅ Requirements
+## Requirements
 
 ### 1. Rich Markdown Rendering
 
@@ -79,7 +79,7 @@ You are free to add any dependencies you'd like, but please document why you cho
   - Be keyboard accessible
   - Insert a function badge at cursor position when selected
 
-## 📚 What to Submit
+## What to Submit
 
 - A GitHub repo (public)
 - Your solution with a working local dev setup
@@ -87,14 +87,12 @@ You are free to add any dependencies you'd like, but please document why you cho
   - Your editor stack choice and why
   - Trade-offs made
   - How to run the project locally
-  - What's working and what's not
+  - What's working and what's not (why?)
   - Anything you'd improve with more time
-
-You can deploy to Vercel/Netlify if you'd like, but it's optional.
 
 ---
 
-## 🤝 Final Notes
+## Final Notes
 
 This is not a test with a single correct solution.
 We're looking to understand how you:
