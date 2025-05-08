@@ -17,7 +17,7 @@ You'll improve our prompt building editor to:
 - Supports replacing, inserting, and deleting functions
 - (Write) Supports serialization back to markdown (round-trip)
 
-## Repository Structure
+## Repo structure
 
 ```
 .
@@ -31,7 +31,7 @@ You'll improve our prompt building editor to:
 └── [config files]     # Various configuration files
 ```
 
-## Tech Stack
+## Tech stack
 
 This repo uses:
 
@@ -46,7 +46,7 @@ You are free to add any dependencies you'd like, but please document why you cho
 
 ## Requirements
 
-### 1. Rich Markdown Rendering
+### 1. Markdown Rendering
 
 - Parse and render markdown with support for:
   - Headings, bold, italic, underline
@@ -54,7 +54,7 @@ You are free to add any dependencies you'd like, but please document why you cho
   - Inline code / blocks
 - Match the visual style shown in the design (clean, readable)
 
-### 2. Function Badges
+### 2. Function badges
 
 - Replace all `<% function UUID %>` placeholders with interactive badges
 - Each badge must:
@@ -71,7 +71,7 @@ You are free to add any dependencies you'd like, but please document why you cho
 - Ensure round-trip works:
   - Load → Edit → Serialize → Load again should preserve structure
 
-#### (stretch) Slash Commands
+#### (stretch) Slash commands
 
 - Typing `/` inside the editor opens a slash command menu
 - The menu must:
@@ -79,9 +79,8 @@ You are free to add any dependencies you'd like, but please document why you cho
   - Be keyboard accessible
   - Insert a function badge at cursor position when selected
 
-## What to Submit
+## What to submit
 
-- A GitHub repo (public)
 - Your solution with a working local dev setup
 - A `SOLUTION.md` that includes:
   - Your editor stack choice and why
@@ -92,7 +91,7 @@ You are free to add any dependencies you'd like, but please document why you cho
 
 ---
 
-## Final Notes
+## Final notes
 
 This is not a test with a single correct solution.
 We're looking to understand how you:
