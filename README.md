@@ -1,4 +1,8 @@
-# 🧠 Hatch Prompt Editor – Take Home Assignment
+<p align="center" textAlign="center">
+    <img src="https://www.usehatchapp.com/hubfs/favicon.ico" alt="Hatch Logo" width="32" height="32">
+</p>
+
+---
 
 This is a frontend challenge based on a real-world problem we've solved at Hatch.
 
