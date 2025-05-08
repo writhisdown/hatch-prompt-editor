@@ -3,10 +3,14 @@
 </p>
 
 ---
-# Hatch script builder
-This is a frontend challenge based on a real-world problem we've solved at Hatch.
 
+<img width="1495" alt="image" src="https://github.com/user-attachments/assets/4cb17e7c-f65c-4c97-9373-b9ce10720d26" />
+
+--- 
+
+This is a frontend challenge based on a real-world problem we've solved at Hatch.
 We're excited to see how you approach a complex editing interface involving markdown.
+
 
 ## Goal
 
