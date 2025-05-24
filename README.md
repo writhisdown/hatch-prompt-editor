@@ -16,10 +16,10 @@ We're excited to see how you approach a complex editing interface involving mark
 
 You'll improve our prompt building editor to:
 
-- (Read) Renders the markdown beautifully
-- Renders tool calling placeholders as interactive badges
-- Supports replacing, inserting, and deleting functions
-- (Write) Supports serialization back to markdown (round-trip)
+- (Read) Render the markdown beautifully
+- Render tool call placeholders as interactive badges
+- Support replacing, inserting, and deleting functions
+- (Write) Support serialization back to markdown (round-trip)
 
 ## Repo structure
 
