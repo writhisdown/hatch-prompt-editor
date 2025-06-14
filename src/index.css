@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -39,6 +40,7 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-hatch-blue: var(--hatch-blue);
 }
 
 :root {
@@ -74,6 +76,7 @@
   --sidebar-accent-foreground: oklch(0.216 0.006 56.043);
   --sidebar-border: oklch(0.923 0.003 48.717);
   --sidebar-ring: oklch(0.709 0.01 56.259);
+  --hatch-blue: oklch(0.5546 0.238 267.22);
 }
 
 .dark {
@@ -117,4 +120,10 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+@layer utilities {
+  .prose-code-inline :not(pre) > code {
+    @apply bg-slate-200 p-0.5;
+  } 
 }

@@ -21,13 +21,39 @@ const buttonVariants = cva(
           "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
         link: "text-primary underline-offset-4 hover:underline",
       },
+      intent: {
+        default: "bg-slate-200 text-primary shadow-xs hover:bg-slate-400/40",
+        success: "bg-blue-100 text-blue-900 shadow-xs hover:bg-blue-300/40",
+        pending: "bg-rose-100 text-rose-900 shadow-xs hover:bg-rose-300/40",
+        info: "bg-yellow-100 text-primary shadow-xs hover:bg-yellow-200/40",
+      },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",
+        xs: "h-6 rounded-sm px-2 has-[>svg]:px-2",
         sm: "h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5",
         lg: "h-10 rounded-md px-6 has-[>svg]:px-4",
-        icon: "size-9",
+        icon_sm: "size-9",
+        icon_lg: "size-12",
+        full: "h-12 px-4 py-2 w-full has-[>svg]:px-3",
       },
     },
+    compoundVariants: [
+      {
+        variant: "outline",
+        size: "icon_lg",
+        className: "rounded-full shadow-md hover:bg-transparent hover:[&_svg]:stroke-hatch-blue",
+      },
+      {
+        variant: "ghost",
+        size: "full",
+        className: "justify-start",
+      },
+      {
+        variant: "outline",
+        size: "xs",
+        className: "shadow-sm has-[>svg]:rounded-full has-[>svg]:px-1",
+      },
+    ],
     defaultVariants: {
       variant: "default",
       size: "default",
@@ -38,6 +64,7 @@ const buttonVariants = cva(
 function Button({
   className,
   variant,
+  intent,
   size,
   asChild = false,
   ...props
@@ -50,7 +77,7 @@ function Button({
   return (
     <Comp
       data-slot="button"
-      className={cn(buttonVariants({ variant, size, className }))}
+      className={cn(buttonVariants({ variant, intent, size, className }))}
       {...props}
     />
   )
