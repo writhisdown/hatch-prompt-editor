@@ -7,6 +7,8 @@
 - visit local hose URL
 - to run cypress tests in the browser, enter `npx cypress open` in a new terminal
 
+  ---
+
 ## Summary
 
 This project simulates an AI prompt interface that enables users to toggle between a markdown editor and a rendered HTML preview. The core functionality resides in `Editor.tsx` and `InteractiveBadge.tsx`.
@@ -38,6 +40,8 @@ Enables dynamic replacement of specific markdown patterns (e.g., `<% function ID
 #### DOMPurify - [link](https://github.com/cure53/DOMPurify)
 A mature and reputable tool for sanitization that ensures all user-inputted markdown content is sanitized before storage or rendering, protecting the app from potential XSS attacks and malicious content.
 
+---
+
 ### UI Components & Styling
 
 #### shadcn/ui - [link](https://ui.shadcn.com/)
@@ -49,6 +53,8 @@ Great for authoring complex Tailwind logic in a clean, declarative manner. This 
 #### Tailwind Typography Plugin - [link](https://tailwindcss.com/)
 The Typography plugin (@tailwindcss/typography) is particularly useful for managing markdown readability with optimized default settings.
 
+---
+
 ### State Management
 
 #### React useState / Custom Hooks
@@ -56,10 +62,14 @@ The project employs native React state via `useState` and a custom hook, `useLoc
 
 The `useLocalStorage` hook combines React state with local browser storage and DOMPurify sanitization to safely preserve the editing session, avoiding `useEffect` to enhance the user experience upon reload or revisit.
 
+---
+
 ### Testing
 
 #### Cypress
 Cypress was selected as the preferred testing tool for its ability to perform real DOM rendering. Its component-level testing features facilitated rapid validation of the core behaviors of `Editor.tsx` and `Interactivebadge.tsx`.
+
+---
 
 
 
@@ -83,6 +93,8 @@ Re-rendering intricate markdown with dynamic features like tooltips and popovers
 ### Security
 Markdown is sanitized using DOMPurify prior to rendering, but enhancing functionality (such as adding support for extra HTML or custom markdown syntax) will necessitate thorough sanitization to prevent XSS vulnerabilities.
 
+---
+
 
 ## Working and not Working
 
@@ -101,6 +113,8 @@ The use of react-markdown and react-string-replace facilitates effective parsing
 
 #### Tooltip description
 Tooltips render the correct description per each function badge on mouse over.
+
+---
 
 ### Needs Improvement
 
@@ -121,6 +135,8 @@ When markdown placeholders appear within list items, `react-string-replace` stru
 Some line breaks and white space from the original markdown aren't preserved in the HTML view.
 
 **Possible Solution:** Use remark-gfm for GitHub-style markdown support, which may more effectively handle soft line breaks and spacing. A more robust rich text editor library like Tip Tap may also be useful, but it seems excessive for this scope.
+
+---
 
 
 ## General Improvements
