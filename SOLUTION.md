@@ -17,46 +17,50 @@ These placeholder tags simulate callable AI functions like ending a conversation
 
 Each badge provides options to modify or remove the associated function, and all changes are reflected in both the markdown and the rendered HTML. Markdown input is sanitized and persisted to local storage to maintain state across sessions, ensuring a consistent user experience.
 
+Before | After
+---|---
+<img width="830" alt="Screenshot 2025-06-18 at 4 59 29 AM" src="https://github.com/user-attachments/assets/064b11c2-e9a7-4116-839b-4bc03f64ef19" /> | <img width="1561" alt="Screenshot 2025-06-18 at 5 00 20 AM" src="https://github.com/user-attachments/assets/f61b5396-92c3-4042-a71d-0bf73659c404" />
+<img width="1561" alt="Screenshot 2025-06-18 at 5 00 31 AM" src="https://github.com/user-attachments/assets/79852525-0ebd-4a6c-9d2a-6fb138ce6ebb" />
+
+
+
+
 
 ## Stack Choices
 
-### React Markdown
-[react-markdown](https://github.com/remarkjs/react-markdown)
+#### React Markdown - [link](https://github.com/remarkjs/react-markdown)
+
 This is crucial for this project to parse and render user-authored markdown as React components. This approach provides structured control over markdown nodes and enables the dynamic rendering of custom elements. It is easy to use and highly customizable, featuring a wide array of plugins and configuration options. It safely renders markdown without using dangerouslySetInnerHTML and can efficiently parse large documents.
 
-### React String Replace 
-[react-string-replace](https://github.com/iansinnott/react-string-replace)
+#### React String Replace - [link](https://github.com/iansinnott/react-string-replace)
 Enables dynamic replacement of specific markdown patterns (e.g., `<% function ID %>`) with custom React components. This is essential for transforming structured placeholder syntax into interactive UI elements. The setup process is quick, and it integrates well with react-markdown.
 
-### DOMPurify
-[DOMPurify](https://github.com/cure53/DOMPurify)
+#### DOMPurify - [link](https://github.com/cure53/DOMPurify)
 A mature and reputable tool for sanitization that ensures all user-inputted markdown content is sanitized before storage or rendering, protecting the app from potential XSS attacks and malicious content.
 
 ### UI Components & Styling
 
-### shadcn/ui
-[shadcn](https://ui.shadcn.com/)
+#### shadcn/ui - [link](https://ui.shadcn.com/)
 A modern, accessible, headless UI library built on Radix primitives. It provides an efficient way to build accessible components while remaining style-agnostic. Specifically, this project utilizes Button, Dialog, Tooltip, Popover, and Toast components to complete this feature.
 
-### Class Variance Authority 
-[class-variance-authority](https://cva.style/docs)
+#### Class Variance Authority - [link](https://cva.style/docs)
 Great for authoring complex Tailwind logic in a clean, declarative manner. This was ideal for managing styles for variants such as intent (i.e. success | pending | info), sizes, and compound variants, particularly for use in the button component as part of the interactive badges.
 
-### Tailwind Typography Plugin
-[tailwindcss-typography](https://tailwindcss.com/)
+#### Tailwind Typography Plugin - [link](https://tailwindcss.com/)
 The Typography plugin (@tailwindcss/typography) is particularly useful for managing markdown readability with optimized default settings.
 
 ### State Management
 
-### React useState / Custom Hooks
+#### React useState / Custom Hooks
 The project employs native React state via `useState` and a custom hook, `useLocalStorage`, to manage user input and persist markdown content across sessions. This approach eliminates the need for heavier state management solutions like Redux or Zustand in this context.
 
 The `useLocalStorage` hook combines React state with local browser storage and DOMPurify sanitization to safely preserve the editing session, avoiding `useEffect` to enhance the user experience upon reload or revisit.
 
 ### Testing
 
-### Cypress
+#### Cypress
 Cypress was selected as the preferred testing tool for its ability to perform real DOM rendering. Its component-level testing features facilitated rapid validation of the core behaviors of `Editor.tsx` and `Interactivebadge.tsx`.
+
 
 
 ## Trade offs
@@ -78,41 +82,41 @@ Re-rendering intricate markdown with dynamic features like tooltips and popovers
 
 ### Security
 Markdown is sanitized using DOMPurify prior to rendering, but enhancing functionality (such as adding support for extra HTML or custom markdown syntax) will necessitate thorough sanitization to prevent XSS vulnerabilities.
- 
+
 
 ## Working and not Working
 
 ### Working
 
-### Local Storage and Sanitization
+#### Local Storage and Sanitization
 Markdown content is reliably stored in localStorage, with string inputs sanitized using DOMPurify to prevent XSS vulnerabilities.
 
 
-### Initial State Management
+#### Initial State Management
 After clearing the markdown input, the placeholder script is properly reinstated, providing a fallback experience.
 
 
-### Markdown and Badge Serialization
+#### Markdown and Badge Serialization
 The use of react-markdown and react-string-replace facilitates effective parsing and rendering of markdown content and functional badges into styled HTML. Key formatting elements (headings, emphasis, lists) are generally maintained and displayed correctly.
 
-### Tooltip description
+#### Tooltip description
 Tooltips render the correct description per each function badge on mouse over.
 
 ### Needs Improvement
 
-### Badge Interaction Bugs:
+#### Badge Interaction Bugs:
 
-- When multiple badges are present, swapping one function badge may affect another. This may be due to improper key handling or unintended state sharing between badge instances.
+When multiple badges are present, swapping one function badge may affect another. This may be due to improper key handling or unintended state sharing between badge instances.
 
 **Possible Solution:** Ensure each badge is uniquely keyed by its exact placeholder string and verify that state updates are isolated. Memoizing badge components or using useCallback more consistently may prevent unintended re-renders.
 
-**Badge Rendering in Lists:**
+#### Badge Rendering in Lists:
 
 When markdown placeholders appear within list items, `react-string-replace` struggles to insert components correctly. It seems to require wrapping elements in a `<p>` tag (as observed in the implementation), which disrupts semantic HTML and layout.
 
 **Possible Solution:** Replace react-string-replace with remark plugins to more precisely control how placeholders are replaced within various markdown node types (e.g., paragraphs, list items, etc.).
 
-**Inconsistent Spacing / Line Breaks:**
+#### Inconsistent Spacing / Line Breaks:
 
 Some line breaks and white space from the original markdown aren't preserved in the HTML view.
 
@@ -121,14 +125,19 @@ Some line breaks and white space from the original markdown aren't preserved in 
 
 ## General Improvements
 
-**Comprehensive Testing:** Dedicate additional time to conducting unit and integration tests, ensuring reliability in all components and state updates.
+#### Comprehensive Testing
+Dedicate additional time to conducting unit and integration tests, ensuring reliability in all components and state updates.
  
-**Enhanced Mobile Experience:** Optimize UI responsiveness and interaction patterns for mobile users by incorporating touch-friendly elements and enhancing layout behavior.
+#### Enhanced Mobile Experience
+Optimize UI responsiveness and interaction patterns for mobile users by incorporating touch-friendly elements and enhancing layout behavior.
  
-**Styling & Transitions:** Add animations and transitions to create smoother visual shifts between editing and preview modes.
+#### Styling & Transitions
+Add animations and transitions to create smoother visual shifts between editing and preview modes.
  
-**Accessibility Enhancements:** Guarantee full keyboard navigability, the use of semantic HTML, correct ARIA attributes, and support for screen readers across all components.
+#### Accessibility Enhancements 
+Guarantee full keyboard navigability, the use of semantic HTML, correct ARIA attributes, and support for screen readers across all components.
  
-**Scroll Sync:** Implement scroll position tracking to ensure a synchronized experience between markdown editing and preview views.
+#### Scroll Sync
+Implement scroll position tracking to ensure a synchronized experience between markdown editing and preview views.
 
 
